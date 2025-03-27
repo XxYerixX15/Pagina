@@ -105,6 +105,97 @@
       </label>
     </div>
 
+        <div class="pregunta">
+      <p>3. ¿Qué preferiría?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta3" value="Play"> Una playstation
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta3" value="Xbox"> Una Xbox
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta3" value="XP"> Un día inolvidable
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta3" value="PC"> Un PC gamer
+      </label>
+    </div>
+
+      <p>4. ¿Cuál fue mi primera pareja?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta4" value="Nahia"> Nahia
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta4" value="Lucia"> Lucía
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta4" value="Miranda"> Miranda
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta4" value="Maria"> María
+      </label>
+    </div>
+
+          <p>5. ¿Cuál es uno de mis mayores miedos por no decir el mayor?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta5" value="Mar"> El mar
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta5" value="Arañas"> Arañas
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta5" value="Personas"> Lo que puedan pensar los demás
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta5" value="Tiburones"> Tiburones
+      </label>
+    </div>
+
+          <p>6. ¿Cosa de la que soy super friki?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta6" value="FNAF"> FNAF
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta6" value="Anime"> Anime
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta6" value="Rubius"> Rubius
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta6" value="L4D2"> Left 4 Dead 2
+      </label>
+    </div>
+
+              <p>7. ¿Creador de contenido favorito?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta7" value="Vegetta777"> Vegetta777
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta7" value="Rubius"> Rubius
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta7" value="Alexby"> Alexby11
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta7" value="Illojuan"> Illojuan
+      </label>
+    </div>
+
+              <p>8. </p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta8" value="F"> 
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta8" value=""> 
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta8" value=""> 
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta8" value=""> 
+      </label>
+    </div>
+    
     <button type="button" onclick="corregir()">Enviar respuestas</button>
   </form>
 
@@ -114,7 +205,13 @@
     function corregir() {
       const respuestas = {
         pregunta1: "Pollo",
-        pregunta2: "Videojuegos"
+        pregunta2: "Videojuegos",
+        pregunta3: "PC",
+        pregunta4: "Miranda",
+        pregunta5: "Personas",
+        pregunta6: "FNAF",
+        pregunta7: "Rubius",
+        pregunta8: "",
       };
 
       let score = 0;
