@@ -3,77 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <title>¿Cuánto me conoces?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 50px;
+      margin: 0;
+      padding: 20px;
       background-color: #f2f2f2;
     }
-    .correcta {
-      color: green;
-      font-weight: bold;
+
+    h1 {
+      text-align: center;
     }
-    .incorrecta {
-      color: red;
-      font-weight: bold;
+
+    .pregunta {
+      background-color: white;
+      padding: 15px;
+      margin: 15px auto;
+      border-radius: 8px;
+      max-width: 600px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .respuesta {
-      margin: 10px 0;
+      display: block;
+      text-align: left;
+      margin: 5px 0;
     }
+
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
     .resultado {
-      margin-top: 30px;
-      font-size: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      font-size: 18px;
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     .respuesta-correcta {
       background-color: #d4edda;
-      padding: 5px;
+      padding: 10px;
       border-radius: 5px;
+      margin-bottom: 10px;
     }
+
     .respuesta-incorrecta {
       background-color: #f8d7da;
-      padding: 5px;
+      padding: 10px;
       border-radius: 5px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
 
   <h1>¿Cuánto me conoces?</h1>
+
   <form id="quizForm">
     <div class="pregunta">
       <p>1. ¿Cuál es mi comida favorita?</p>
       <label class="respuesta">
         <input type="radio" name="pregunta1" value="Pizza"> Pizza
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta1" value="Pollo"> Pollo
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta1" value="Hamburguesa"> Hamburguesa
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta1" value="Tortilla de patatas"> Tortilla de patatas
       </label>
     </div>
-    
-<div class="pregunta">
-      <p>1. ¿Qué me gusta hacer en mi tiempo libre generalmente?</p>
+
+    <div class="pregunta">
+      <p>2. ¿Qué me gusta hacer en mi tiempo libre generalmente?</p>
       <label class="respuesta">
         <input type="radio" name="pregunta2" value="Videojuegos"> Jugar a videojuegos
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta2" value="Deporte"> Hacer deporte
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta2" value="Fiesta"> Salir de fiesta
-      </label><br>
+      </label>
       <label class="respuesta">
         <input type="radio" name="pregunta2" value="Escribir"> Escribir un libro/novela
       </label>
     </div>
-    
-    <br>
+
     <button type="button" onclick="corregir()">Enviar respuestas</button>
   </form>
 
@@ -82,43 +113,45 @@
   <script>
     function corregir() {
       const respuestas = {
-        pregunta1: "Pollo"
-      };
-
-          function corregir() {
-      const respuestas = {
+        pregunta1: "Pollo",
         pregunta2: "Videojuegos"
       };
 
       let score = 0;
-      let total = 1;
+      let total = Object.keys(respuestas).length;
       let resultadoHTML = "";
 
-      const seleccion = document.querySelector('input[name="pregunta1"]:checked');
-      const respuestaUsuario = seleccion ? seleccion.value : null;
+      for (const key in respuestas) {
+        const seleccion = document.querySelector(`input[name="${key}"]:checked`);
+        const respuestaUsuario = seleccion ? seleccion.value : null;
 
-      if (!respuestaUsuario) {
-        alert("Responde la pregunta primero, bribón.");
-        return;
-      }
+        if (!respuestaUsuario) {
+          resultadoHTML += `
+            <div class="respuesta-incorrecta">
+              ❌ ${key}: No respondiste esta pregunta.
+            </div>
+          `;
+          continue;
+        }
 
-      if (respuestaUsuario === respuestas.pregunta1) {
-        score++;
-        resultadoHTML += `
-          <div class="respuesta-correcta">
-            ✅ Pregunta 1: "${respuestaUsuario}" es correcta.
-          </div>
-        `;
-      } else {
-        resultadoHTML += `
-          <div class="respuesta-incorrecta">
-            ❌ Pregunta 1: Tú pusiste "${respuestaUsuario}", pero la buena era "${respuestas.pregunta1}".
-          </div>
-        `;
+        if (respuestaUsuario === respuestas[key]) {
+          score++;
+          resultadoHTML += `
+            <div class="respuesta-correcta">
+              ✅ ${key}: "${respuestaUsuario}" es correcta.
+            </div>
+          `;
+        } else {
+          resultadoHTML += `
+            <div class="respuesta-incorrecta">
+              ❌ ${key}: Tú pusiste "${respuestaUsuario}", pero la correcta era "${respuestas[key]}".
+            </div>
+          `;
+        }
       }
 
       const porcentaje = (score / total) * 100;
-      resultadoHTML += `<p>🧠 Puntuación: ${score}/${total} (${porcentaje.toFixed(2)}%)</p>`;
+      resultadoHTML += `<p><strong>🧠 Puntuación:</strong> ${score}/${total} (${porcentaje.toFixed(2)}%)</p>`;
 
       document.getElementById("resultado").innerHTML = resultadoHTML;
     }
