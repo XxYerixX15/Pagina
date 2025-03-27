@@ -56,7 +56,23 @@
         <input type="radio" name="pregunta1" value="Tortilla de patatas"> Tortilla de patatas
       </label>
     </div>
-
+    
+<div class="pregunta">
+      <p>1. ¿Qué me gusta hacer en mi tiempo libre generalmente?</p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta2" value="Videojuegos"> Jugar a videojuegos
+      </label><br>
+      <label class="respuesta">
+        <input type="radio" name="pregunta2" value="Deporte"> Hacer deporte
+      </label><br>
+      <label class="respuesta">
+        <input type="radio" name="pregunta2" value="Fiesta"> Salir de fiesta
+      </label><br>
+      <label class="respuesta">
+        <input type="radio" name="pregunta2" value="Escribir"> Escribir un libro/novela
+      </label>
+    </div>
+    
     <br>
     <button type="button" onclick="corregir()">Enviar respuestas</button>
   </form>
@@ -66,7 +82,12 @@
   <script>
     function corregir() {
       const respuestas = {
-        pregunta1: "Pizza"
+        pregunta1: "Pollo"
+      };
+
+          function corregir() {
+      const respuestas = {
+        pregunta2: "Videojuegos"
       };
 
       let score = 0;
