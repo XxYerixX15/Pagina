@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>¿Cuánto me conoces?</title>
+  <title>¿Cuánto me conoces?<br>Si no alcanzas el 50% de nota como mínimo no pagaré tu comida</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -357,6 +357,21 @@
         <input type="radio" name="pregunta18" value="Seis"> Seis
       </label>
     </div>
+
+                    <p>19.¿Cuál ha sido mi trabajo soñado? </p>
+      <label class="respuesta">
+        <input type="radio" name="pregunta19" value="Streamer"> Streamer
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta19" value="Police"> Policía
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta19" value="Profesor"> Profesor
+      </label>
+      <label class="respuesta">
+        <input type="radio" name="pregunta19" value="Bombero"> Bombero
+      </label>
+    </div>
     <button type="button" onclick="corregir()">Enviar respuestas</button>
   </form>
 
@@ -383,6 +398,7 @@
         pregunta16: "Diestro",
         pregunta17: "FIFA",
         pregunta18: "Cuatro",
+        pregunta19: "Streamer"
       };
 
       let score = 0;
